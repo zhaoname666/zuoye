@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  <!-- 引入 layui.css -->
+ <link rel="stylesheet" href="https://unpkg.com/layui@2.7.6/dist/css/layui.css">
+ 
+ <!-- 引入 layui.js -->
+ <script src="https://unpkg.com/layui@2.7.6/dist/layui.js">
+  </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <style>
+      ul {
+        height: 950px;
+      }
+      .box {
+        width: 1000px;
+        margin-top: 10%;
+        margin-left: 20%;
+      }
+      img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50px;
+        margin: 30px 50px;
+      }
+      .divs {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      .n1 {
+        width: 400px;
+        height: 350px;
+        position: absolute;
+        top: 30px;
+        left: 20%;
+        background-color: turquoise;
+        padding: 20px;
+     
+      }
+      #imgs{
+        width: 800px;
+        height: 500px;
+        border: 1px solid white;
+      }
+      #colors{
+           position: absolute;
+           left: 200px;
+           height: 100px;
+      }
+      .pink{
+        background-color: pink;
+      }
+      .white{
+        background-color: white;
+      }
+    </style>
+  </head>
+  <body style="display: flex">
+    
+    <div>
+    <!-- 个人信息 -->
+    <ul class="layui-nav" lay-filter=""  id="colors">
+  <li class="layui-nav-item">
+    <b href="">更换颜色</b>
+    <dl class="layui-nav-child"> <!-- 二级菜单 -->
+      <dd><a href=""></a></dd>
+      <dd><a href="" id="pinks">粉色</a></dd>
+      <dd><a href="" id="baise">白色</a></dd>
+    </dl>
+  </li>
+</ul>
+ 
+<script>
+//注意：导航 依赖 element 模块，否则无法进行功能性操作
+layui.use('element', function(){
+  var element = layui.element;
+  
+  //…
+});
+</script>
+      <ul class="layui-nav layui-nav-tree" lay-filter="test">
+        <div
+          class="layui-anim layui-anim-rotate"
+          data-anim="layui-anim-rotate"
+        ></div>
+        <img
+          class="layui-anim layui-anim-rotate"
+          data-anim="layui-anim-rotate"
+          src="https://img2.baidu.com/it/u=3871819192,3366247173&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=889"
+          alt=""
+        />
+        <div class="code divs">tx123</div>
+        <li class="layui-nav-item" id="jiangshi"><a href="">歌曲管理</a></li>
+      </ul>
+    </div>
+    <div class="box">
+      <input type="text" name="" id="search"><button type="button" class="layui-btn layui-btn layui-btn-xs layui-btn-primary layui-border-orange" id="searchs">搜索</button>
+      <button id="btn" class="layui-btn layui-btn-warm" style="float: right">
+        添加歌曲
+      </button>
+      <table class="layui-table">
+        <thead id="top">
+          <tr>
+            <th>编号</th>
+            <th>歌曲姓名</th>
+            <th>艺术家</th>
+            <th>专辑名字</th>
+            <th>年代</th>
+            <th>类型</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+      <div id="fen">
+        <button id="parv">上一页</button><input type="text" style="width:30px" value="1" id="noss" >/<button id="next">下一页</button>
+      </div>
+      <div class="n1 ">
+<form class="layui-form" action="" lay-filter="example">
+  <div class="layui-form-item" id="noid">
+    <label class="layui-form-label">ID</label>
+    <div class="layui-input-block">
+      <input type="text" name="ID" lay-verify="title" id="noids" autocomplete="off" class="layui-input">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">歌曲名字</label>
+    <div class="layui-input-block">
+      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入用户名" id="title" class="layui-input">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">艺术家</label>
+    <div class="layui-input-block">
+      <input type="text" name="artist" placeholder="昵称" autocomplete="off" id="artist" class="layui-input">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">专辑名字</label>
+    <div class="layui-input-block">
+      <input type="text" name="album" placeholder="昵称" autocomplete="off" id="album" class="layui-input">
+    </div>
+  </div>
+    <div class="layui-inline">
+      <label class="layui-form-label">年代</label>
+      <div class="layui-input-inline">
+        <input type="text" class="layui-input" name="year"  name="year" min="1900" max="2099" id="test"placeholder="yyyy-MM-dd HH:mm:ss">
+      </div>
+      <div class="layui-form-item">
+    <label class="layui-form-label">类型</label>
+    <div class="layui-input-block">
+      <input type="text" name="album" placeholder="昵称" autocomplete="off" id="genre" class="layui-input">
+    </div>
+ <div class="layui-form-item">
+          <div class="layui-input-block">
+            <button
+              type="submit"
+              class="layui-btn"
+              lay-submit=""
+              lay-filter="demo1"
+              id="tjBtn"
+            >
+              立即提交
+            </button>
+             <button
+              class="layui-btn"
+              lay-submit=""
+              lay-filter="demo1"
+              id="modify"
+            >
+              修改
+            </button>
+          </div>
+        </div>
+      </form>
+</div>
+     
+    </div>
+  </body>
+  <script>
+    $("modify").hide()
+    //颜色
+    $('#pinks').click(function(e){
+  e.preventDefault()
+  let res={
+    'background':'pink'
+  }
+  localStorage.setItem("pink", 'pink');
+    $('body').attr('class','')
+  $('body').toggleClass('pink')
+    })
+     $('#baise').click(function(e){
+  e.preventDefault()
+  let res={
+    
+    'background':'white'
+  }
+    $('body').attr('class','')
+  $('body').toggleClass('white')
+  localStorage.setItem("pink", 'white');
+
+    })
+    let  sons=localStorage.getItem('pink')
+         sons=sons.replace(/"/g, '')
+    console.log(sons);
+    $('body').addClass(sons)
+    //  $('.box').hide()
+    $('#jiangshi').click(function(e){
+       e.preventDefault()
+      $('.box').show()
+    })
+$("#modify").hide()
+$('#imgs').hide()
+
+let T1=true
+$('#noid').hide()
+layui.use(['form', 'layedit', 'laydate'], function(){
+  var form = layui.form
+  ,layer = layui.layer
+  ,layedit = layui.layedit
+  ,laydate = layui.laydate;
+  
+  //日期
+  laydate.render({
+    elem: '#date'
+  });
+  laydate.render({
+    elem: '#date1'
+  });
+  
+  //创建一个编辑器
+  var editIndex = layedit.build('LAY_demo_editor');
+ 
+  //自定义验证规则
+  form.verify({
+    // title: function(value){
+    //   if(value.length < 2){
+    //     return '标题至少得2个字符啊';
+    //   }
+    // },
+    pass: [
+      /^[\S]{6,12}$/
+      ,'密码必须6到12位，且不能出现空格'
+    ]
+    ,content: function(value){
+      layedit.sync(editIndex);
+    }
+  });
+  
+  //监听指定开关
+  form.on('switch(switchTest)', function(data){
+    layer.msg('开关checked：'+ (this.checked ? 'true' : 'false'), {
+      offset: '6px'
+    });
+    layer.tips('温馨提示：请注意开关状态的文字可以随意定义，而不仅仅是ON|OFF', data.othis)
+  });
+  
+  //监听提交
+
+  form.on('submit(demo1)', function(data){
+    let sun=data.field
+     if(T1){
+    $('#tjBtn').click(function(e){
+      e.preventDefault(),
+      e.stopPropagation()
+      console.log(111111);
+      let sun={
+        title:$('#title').val(),
+        artist:$('#artist').val(),
+        album:$('#album').val(),
+        year:$('#test').val(),
+        genre:$('#genre').val(),}
+         $.ajax({
+      url:'https://mp3.zzgoodqc.cn/api/songs',
+      type: "post",
+      dataType: "json",
+   
+      headers:{
+        "Content-Type":"application/json"
+      },
+         data:JSON.stringify(sun),
+      success:function(res){
+        console.log(res.msg);
+          fun();
+           $(".n1").toggle()
+      }
+    })
+    })}else{
+          $('#modify').click(function(e){
+        e.preventDefault(),
+      e.stopPropagation()
+      console.log(111111);
+      let sun={
+        title:$('#title').val(),
+        artist:$('#artist').val(),
+        album:$('#album').val(),
+        year:$('#test').val(),
+        genre:$('#genre').val(),}
+        let son=$('#noids').val()
+         $.ajax({
+      url:'https://mp3.zzgoodqc.cn/api/songs/'+son,
+      type: "put",
+      dataType: "json",
+   
+      headers:{
+        "Content-Type":"application/json"
+      },
+         data:JSON.stringify(sun),
+      // data:data.field,
+      success:function(res){
+        console.log(res.msg);
+          fun();
+           $(".n1").toggle()
+      }
+    })
+    })
+  }
+    return false;
+  });
+ 
+
+
+});
+</script>
+  <script>
+    $('.n1').hide()
+    
+    $(function () {
+      //分页
+      getData()
+      fun();
+      $("#btn").click(function () {
+        $(".n1").toggle()
+        $('#tjBtn').show()
+        $('#modify').hide()
+        $('#noid').hide()
+        T1=true
+          
+          $("input[name='name']").val(' ')
+          $("input[name='nick']").val(' ')
+          $("input[name='sex']").val(' ')
+          $("input[name='birthdata']").val(' ')
+           $("input[name='iphone']").val(' ')
+        
+      });
+    });
+    function getData(){
+      let n=1
+       let sun=[]
+        $('#fen').on('click','button', function(e){
+
+           if(e.target.innerHTML=='下一页'){
+                $.ajax({
+        type:'get',
+        url:'https://mp3.zzgoodqc.cn/api/songs?page='+(n+1)+"&pageSize=5",
+        dataType:'json',
+        success:function(res){
+          xs(res.data)
+          console.log(res);
+            $('#noss').val(n+1)
+             if(res.data.length!=5){
+              n=n
+                // $('#next').css('pointer-events','none')
+             }else{
+                 ++n
+             } 
+        }
+      })
+    }else{
+   $.ajax({
+        type:'get',
+        url:'https://mp3.zzgoodqc.cn/api/songs?page='+(n-1)+"&pageSize=5",
+        
+        dataType:'json',
+        success:function(res){
+          xs(res.data)
+          console.log(res);
+            $('#noss').val(n-1)
+               if(n>2){
+                --n
+               }else if(n==1){
+                return;
+               }
+                
+           
+        }
+      })
+    } 
+        
+      
+        })
+          
+      
+    }
+         //表单的点击事件
+   $('#tbody').on('click', 'button', function(e){
+    let id=e.target.dataset.id
+    if(e.target.innerHTML=='删除'){
+      if(confirm('确定')){
+      $.ajax({
+        url: "https://mp3.zzgoodqc.cn/api/songs/"+id,
+        type: "delete",
+        dataType: "json",
+        success: function (res) {
+         fun()
+        },
+      });
+      }
+    }
+     if(e.target.innerHTML=='查看'){
+      $('button[type="submit"]').hide()
+      $('#modify').hide()
+       $(".n1").toggle()
+       $('#noid').show()
+      $.ajax({
+        url: "https://mp3.zzgoodqc.cn/api/songs/"+id,
+        type: "get",
+        dataType: "json",
+        success: function (res) {
+          console.log(res);
+          $('#noids').val(res.data.id)
+          $('#title').val(res.data.title),
+        $('#artist').val(res.data.artist),
+        $('#album').val(res.data.album),
+        $('#year').val(res.data.year),
+        $('#genre').val(res.data.genre)
+        },
+      });
+     }
+      if(e.target.innerHTML=='编辑'){
+        T1=false;
+        $('#noid').show()
+        $(".n1").toggle()
+        $('button[type="submit"]').hide()
+        $("#modify").show()
+        $('form').prepend(``)
+         $.ajax({
+        url: "https://mp3.zzgoodqc.cn/api/songs/"+id,
+        type: "get",
+        dataType: "json",
+        success: function (res) {
+          console.log(res);
+          $('#noids').val(res.data.id)
+          $('#title').val(res.data.title),
+        $('#artist').val(res.data.artist),
+        $('#album').val(res.data.album),
+        $('#test').val(res.data.year),
+        $('#genre').val(res.data.genre)
+        },
+      });
+      }
+    }
+   )
+   //修改
+
+    function fun() {
+      $.ajax({
+        url: "https://mp3.zzgoodqc.cn/api/songs?page=1&pageSize=5",
+        type: "get",
+        dataType: "json",
+        success: function (res) {
+          xs(res.data);
+          console.log(res);
+        },
+      });
+    }
+    function xs(n) {
+      let html = "";
+      n.forEach((item, index) => {
+        html += `
+         <tr>
+            <td>${item.id}</td>
+            <td>${item.title}</td>
+            <td>${item.artist}</td>
+            <td>${item.album}</td>
+            <td>${item.year}</td>
+            <td>${item.genre}</td>
+            <td>
+             <button type="button" class="layui-btn layui-btn-sm" data-id="${item.id}">
+                     <i class="layui-icon"  data-id="${item.id}">查看</i>
+             </button>
+             <button type="button" class="layui-btn layui-btn-sm " data-id="${item.id}">
+                     <i class="layui-icon" data-id="${item.id}">删除</i>
+             </button>
+             <button type="button" class="layui-btn layui-btn-sm"  data-id="${item.id}">
+                     <i class="layui-icon"  data-id="${item.id}">编辑</i>
+             </button>
+            </td>
+          </tr>
+        `;
+      });
+      $("#tbody").html(html);
+    }
+  </script>
+</html>
