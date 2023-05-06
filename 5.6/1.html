@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Swiper demo</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+    />
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <style>
+      html,
+      body {
+        position: relative;
+        height: 100%;
+        background-color: #000;
+      }
+
+      body {
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #000;
+        margin: 0;
+        padding: 0;
+      }
+
+      .swiper {
+        width: 1200px;
+        height: 700px;
+      }
+
+      .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #000;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+      }
+
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 50%;
+        object-fit: cover;
+        z-index: 10001;
+      }
+      .swiper-pagination-bullet {
+        width: 200px;
+        height: 100px;
+        color: #000;
+        background-color: white;
+        position: relative;
+        top: 30px;
+        line-height: 60px;
+        border-radius: 0%;
+        z-index: 1000;
+      }
+      .swiper-slide img {
+        width: 80% !important;
+        height: 50% !important;
+        content: "呼吸化为亡灵，尽归幽冥之间。";
+      }
+      .swiper-wrapper {
+        margin-left: 10px;
+      }
+      .no1 {
+        width: 200px;
+        height: 80px;
+        background-color: white;
+        position: absolute;
+        top: 90px;
+      }
+      #noe {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        position: relative;
+        top: 15%;
+        left: 22%;
+        z-index: 1000;
+      }
+      .no2 {
+        color: white;
+        position: absolute;
+        top: 30px;
+        left: 900px;
+      }
+    </style>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+  </head>
+
+  <body>
+    <!-- Swiper -->
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img
+            src="https://img.zcool.cn/community/01b9b560ab0c6e11013eaf706ca5e6.jpg@1280w_1l_2o_100sh.jpg"
+            alt=""
+            class=""
+          />
+        </div>
+
+        <div class="swiper-slide">
+          <img
+            src="https://img.zcool.cn/community/01ad2b60ab0c6c11013f4720df1851.jpg@1280w_1l_2o_100sh.jpg"
+            alt=""
+          />
+        </div>
+        <div class="no2">为什么那么多人来洛阳旅游?这就是洛阳旅游!</div>
+        <div class="swiper-slide">
+          <img
+            src="https://img.zcool.cn/community/01b25260ab0c6c11013f4720736556.jpg@1280w_1l_2o_100sh.jpg"
+            alt=""
+          />
+          <div class="no2">2019隋唐洛阳城国家遗址公园天堂明堂景</div>
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://img.zcool.cn/community/010a5160ab0c6c11013f472071124b.jpg@1280w_1l_2o_100sh.jpg"
+            alt=""
+          />
+          <div class="no2">洛阳·明堂、万象神宫三维|建筑/空间追盛</div>
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://pic3.zhimg.com/v2-8b209a75b864387074926a988b736c7d_r.jpg?source=1940ef5c"
+            alt=""
+          />
+          <div class="no2">2014最美丽城市排行榜</div>
+          ;
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        spaceBetween: 30,
+        centeredSlides: true,
+        direction: "horizontal",
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
+        // 如果需要前进后退按钮
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+          renderBullet: function (index, className) {
+            let html = "";
+            switch (index) {
+              case 0:
+                html = `<img
+        src="https://img.zcool.cn/community/01b9b560ab0c6e11013eaf706ca5e6.jpg@1280w_1l_2o_100sh.jpg"
+        alt=""
+        style="width: 200px; height: 120px"
+      /><br> <div class="no1">洛阳 (河南省地级市,十三朝古都) </div>;`;
+                break;
+              case 1:
+                html = `<img
+        src="https://img.zcool.cn/community/01ad2b60ab0c6c11013f4720df1851.jpg@1280w_1l_2o_100sh.jpg"
+        alt=""
+        style="width: 200px; height: 120px"
+      /><br> <div class="no1">为什么那么多人来洛阳旅游?这就是洛阳旅游!</div>;`;
+                break;
+              case 2:
+                html = ` <img
+        src="https://img.zcool.cn/community/01b25260ab0c6c11013f4720736556.jpg@1280w_1l_2o_100sh.jpg"
+        alt=""
+        style="width: 200px; height: 120px"
+      /><br> <div class="no1">2019隋唐洛阳城国家遗址公园天堂明堂景</div>;`;
+                break;
+              case 3:
+                html = `     <img
+        src="https://img.zcool.cn/community/010a5160ab0c6c11013f472071124b.jpg@1280w_1l_2o_100sh.jpg"
+        alt=""
+        style="width: 200px; height: 120px"
+      /><br> <div class="no1">洛阳·明堂、万象神宫三维|建筑/空间追盛</div>;`;
+                break;
+              case 4:
+                html = ` <img
+        src="https://pic3.zhimg.com/v2-8b209a75b864387074926a988b736c7d_r.jpg?source=1940ef5c"
+        alt=""
+        style="width: 200px; height: 120px"
+      /><br> <div class="no1">2014最美丽城市排行榜</div>;`;
+                break;
+            }
+            return '<div class="' + className + '">' + html + "</div>";
+          },
+        },
+      });
+      for (i = 0; i < swiper.pagination.bullets.length; i++) {
+        swiper.pagination.bullets[i].click = function () {
+          this.click();
+        };
+      }
+    </script>
+  </body>
+</html>
